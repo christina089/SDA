@@ -1,3 +1,8 @@
+//  Anggota Kelompok :
+//  1. Felipe    191402086
+//  2. Christina 191402089
+
+
 #include <iostream>
 
 using namespace std;
@@ -35,7 +40,7 @@ int main()
         switch (pil)
         {
         case 1:
-            cout << "\nData Linked list : \n";
+            cout << "\nData Linked list  \n";
             showList();
             break;
         case 2:
