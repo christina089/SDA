@@ -12,6 +12,7 @@ void makeList(int n);
 void showList();
 void searchList(int item, int n);
 void insertPos(node** current, int pos, int data);
+void deletePos(node **head_ref, int position);
 int n;
 int main()
 {
@@ -38,6 +39,9 @@ int main()
             showList();
             break;
         case 2:
+        cout << "Posisi data yang akan dihapus : ";
+        cin >> pos;
+        deletePos(&stnode, pos-1);
             break;
         case 3:
         cout << "Posisi data yang ingin di insert : ";
@@ -197,4 +201,39 @@ void insertPos(node** current, int pos, int data)
         } 
         n++; 
     } 
+} 
+
+void deletePos(node **head_ref, int position) 
+{ 
+   // If linked list is empty 
+   if (*head_ref == NULL) 
+      return; 
+  
+   // Store head node 
+   struct node* temp = *head_ref; 
+  
+    // If head needs to be removed 
+    if (position == 0) 
+    { 
+        *head_ref = temp->nextptr;   // Change head 
+        free(temp);               // free old head 
+        return; 
+    } 
+  
+    // Find previous node of the node to be deleted 
+    for (int i=0; temp!=NULL && i<position-1; i++) 
+         temp = temp->nextptr; 
+  
+    // If position is more than number of nodes 
+    if (temp == NULL || temp->nextptr == NULL) 
+         return; 
+  
+    // Node temp->next is the node to be deleted 
+    // Store pointer to the next of node to be deleted 
+    struct node *next = temp->nextptr->nextptr; 
+  
+    // Unlink the node from linked list 
+    free(temp->nextptr);  // Free memory 
+  
+    temp->nextptr = next;  // Unlink the deleted node from list 
 } 
