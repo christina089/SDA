@@ -1,6 +1,7 @@
 //  Anggota Kelompok :
 //  1. Felipe    191402086
 //  2. Christina 191402089
+//  Implementasi Linked list
 
 
 #include <iostream>
